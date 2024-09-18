@@ -6,7 +6,7 @@
     <header>
         <div class="header-content">
             <div class="logo">
-                <h1>Santiago Fonseca<b>Pro</b></h1>
+                <h1><b>S-S</b> Financiacion Familiar</h1>
             </div>
             <!--Menu-->
             <div class="menu" id="show-menu">
