@@ -5,16 +5,7 @@ function mostrar_menu(){
     document.getElementById("move-content").classList.toggle('move-container-all');
     document.getElementById("show-menu").classList.toggle('show-lateral');
 }
-
-
-
-
-
-
-
-
                             //Buscador de contenido
-
 
 //Ejecutando funciones
 document.getElementById("icon-search").addEventListener("click", mostrar_buscador);
@@ -44,5 +35,3 @@ function ocultar_buscador(){
     inputSearch.value = "";
 
 }
-
-

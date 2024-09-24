@@ -12,10 +12,9 @@
             <div class="menu" id="show-menu">
                 <nav>
                     <ul>
-                        <li><a href="#"> <i class="fas fa-home"></i>Inicio</a></li>
+                        <li class="menu-selected"><a href="#"  class="text-menu-selected"> <i class="fas fa-home"></i>Inicio</a></li>
                         <li><a href="#"> <i class="fab fa-file"> </i>Ingresos</a></li>
-                        <li class="menu-selected"><a href="blog.html" class="text-menu-selected"> 
-                            <i class="fas fa-file-alt"></i>Gastos</a></li>
+                        <li><a href="blog.html"><i class="fas fa-file-alt"></i>Gastos</a></li>
                         <li><a href="#"> <i class="fas fa-headset"></i>Presupuesto</a></li>
                     </ul>
                 </nav>
@@ -50,6 +49,7 @@
                 </ul>
                 <li>Tema 1</li>
             </ul>
+            
             <br><img src="img/imagen.png" alt="">
         </article>
 
@@ -66,6 +66,7 @@
     <!--Pie de pagina-->
     <?php include 'src/footer.php'; ?>
 </div>
-<script src="js/script.js"></script>
 </body>
+<script src="js/script.js"></script>
+<script src="js/reloj.js"></script>
 </html>

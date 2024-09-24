@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="css/articulos.css"> <!--Articulos o Publiidad-->
     
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    
-    <script src='js/main.js'></script>
+    <script src="js/script.js"></script>
+    <script src="reloj.js"></script>
 </head>
