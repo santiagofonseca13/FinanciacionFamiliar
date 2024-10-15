@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ejemplo</title>
+    <title>Financiación Familiar</title>
+    <link rel="icon" type="image/png" href="img/imagen.png">
     <link rel="stylesheet" href="css/pagina_web.css">
 </head>
 <body>
     <div >
         <header>
-            <img src="imagenes/paginam.jpeg" width="300">
-            
-            <h1>Mi Sitio</h1>
-        
-        
+        <img src="img/imagen.png" width="300">
+        <h1>Mi Sitio</h1>
         <nav>
             <ul>
                 <li><a href="#">Inicio</a></li>
@@ -64,8 +62,8 @@
         <hr>
         <p class="fecha"></p>
         <p class="tiempo"></p>
+        <p>© 2024 Paula Gómez, Santiago Fonseca & Carol</p>
         <h4>© 2024 - Titulo - Todos los Derechos Reservados</h4>
-        <p>© 2024 Paula Gómez</p>
         </div>
     </footer>
 </body>
