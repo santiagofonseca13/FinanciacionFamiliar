@@ -2,63 +2,82 @@
     margin: 0;
     padding: 0;
 }
-body {
-background-color: beige;
+body{
+    background-color: rgb(232, 223, 255);
 }
 
-header,  .main, footer{
-    background-color:#fff ;
+header{
+    background: #fff;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;   
+}
+
+header , .main , footer{
+    background: #fff;
     width: 90%;
     max-width: 1000px;
     margin: 20px auto;
 }
 
 header nav{
-    background: #3c60ff;
+    background: #4665f0;
     overflow: hidden;
+    justify-content: center;
+    display: flex;
 }
-header nav ul {
+
+header nav ul{
     list-style: none;
 }
+
 header nav ul a{
-    color: #fff;
     text-decoration: none;
-    float:left;
+    float: left;
+}
+
+header nav ul li{
+    text-decoration: none;
+    float: left;
 }
 
 header nav ul li a{
-    float:left;
+    float: left;
     padding: 10px 20px;
     display: block;
     text-decoration: none;
-    color:white;
+    color: white;
 }
+
 header nav ul li a:hover{
-    background-color: #75acec;
+    background: rgb(43, 205, 226);  
 }
+
 .main .articulos{
     width: 68.5%;
     float: left;
     margin-right: 1.5%;
 }
+
 aside{
     width: 30%;
-    float:left;
-    background: #6af5e0;
-    padding: 20px;
+    float: left;
+    background: #c5cef7;
+    padding: 10px;
     box-sizing: border-box;
     text-align: justify;
-
 }
+
 .main .articulos article{
-    padding:20px;
-    background-color:white;
+    padding: 20px;
+    background: white;
     margin-bottom: 20px;
 }
+
 footer{
     clear: both;
-    background: #3c60ff;
-    color: rgb(0, 0, 0);
+    background: #8b9ffc;
+    color: black;
     font-size: 1.2rem;
     padding: 10px 20px;
     text-align: center;

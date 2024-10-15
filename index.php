@@ -1,27 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financiación Familiar</title>
-    <link rel="icon" type="image/png" href="img/imagen.png">
-    <link rel="stylesheet" href="css/pagina_web.css">
-</head>
+    <?php include 'src/head.php'; ?>
 <body>
-    <div >
-        <header>
-        <img src="img/imagen.png" width="300">
-        <h1>Mi Sitio</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Acerca de</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-        </header>
-    </div>
+    <?php include 'src/header.php'; ?>
     <section class="main">
         <section class="articulos">
             <article>
@@ -52,20 +33,8 @@
           </p>
         </aside>
     </section>
-    <footer>
-    <div class="container-footer">	
-    <footer>
-        <div class="logo-footer">
-            <img src="img/imagen.png" alt="">
-        </div>
-
-        <hr>
-        <p class="fecha"></p>
-        <p class="tiempo"></p>
-        <p>© 2024 Paula Gómez, Santiago Fonseca & Carol</p>
-        <h4>© 2024 - Titulo - Todos los Derechos Reservados</h4>
-        </div>
-    </footer>
+    <!--Pie de pagina-->
+    <?php include 'src/footer.php'; ?>
 </body>
 <script src="js/reloj.js"></script>
 </html>
