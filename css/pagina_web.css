@@ -21,7 +21,7 @@ header , .main , footer{
 }
 
 header nav{
-    background: #4665f0;
+    background: hsl(229, 90%, 51%);
     overflow: hidden;
     justify-content: center;
     display: flex;
@@ -50,7 +50,7 @@ header nav ul li a{
 }
 
 header nav ul li a:hover{
-    background: rgb(43, 205, 226);  
+    background: rgb(54, 109, 228);  
 }
 
 .main .articulos{
@@ -76,7 +76,7 @@ aside{
 
 footer{
     clear: both;
-    background: #8b9ffc;
+    background: #4665f0;
     color: black;
     font-size: 1.2rem;
     padding: 10px 20px;

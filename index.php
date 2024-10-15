@@ -28,10 +28,13 @@
         </section>
         <aside>
             <h3> aside</h3>
-          <p>
-            Un texto es una composición de signos codificados en un sistema de escritura que forma una unidad de sentido. También es una composición de caracteres imprimibles generados por un algoritmo de cifrado que, aunque no tienen sentido para cualquier persona, sí puede ser descifrado por su destinatario original 
-          </p>
+            <p>Un texto es una composición de signos codificados en un sistema de escritura que forma una unidad de sentido. También es una composición de caracteres imprimibles generados por un algoritmo de cifrado que, aunque no tienen sentido para cualquier persona, sí puede ser descifrado por su destinatario original </p>
         </aside>
+        <aside>
+            <h3> aside</h3>
+            <p>Un texto es una composición de signos codificados en un sistema de escritura que forma una unidad de sentido. También es una composición de caracteres imprimibles generados por un algoritmo de cifrado que, aunque no tienen sentido para cualquier persona, sí puede ser descifrado por su destinatario original </p>
+        </aside>
+
     </section>
     <!--Pie de pagina-->
     <?php include 'src/footer.php'; ?>
