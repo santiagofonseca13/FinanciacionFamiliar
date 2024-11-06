@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2024 a las 17:02:17
+-- Tiempo de generación: 06-11-2024 a las 18:29:02
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -32,6 +32,22 @@ CREATE TABLE `categoriagastos` (
   `nombre_categoria` varchar(50) DEFAULT NULL,
   `descripcion` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categoriagastos`
+--
+
+INSERT INTO `categoriagastos` (`id_categoria`, `nombre_categoria`, `descripcion`) VALUES
+(1, 'Alimentación', 'Gastos relacionados con la compra de alimentos y b'),
+(2, 'Vivienda', 'Gastos de alquiler, hipoteca, y servicios públicos'),
+(3, 'Transporte', 'Gastos de transporte, incluyendo gasolina y manten'),
+(4, 'Salud', 'Gastos médicos, medicamentos y seguros de salud'),
+(5, 'Educación', 'Gastos en matrícula, libros y materiales educativo'),
+(6, 'Entretenimiento', 'Gastos en ocio, como cine, restaurantes y activida'),
+(7, 'Ropa', 'Gastos en prendas de vestir y accesorios'),
+(8, 'Ahorro', 'Dinero destinado al ahorro y la inversión'),
+(9, 'Mascotas', 'Gastos relacionados con el cuidado de mascotas, co'),
+(10, 'Otros', 'Gastos que no se clasifican en las categorías ante');
 
 -- --------------------------------------------------------
 
@@ -65,6 +81,14 @@ CREATE TABLE `gastos` (
   `id_categoria` int(8) DEFAULT NULL,
   `id_usuario` int(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `gastos`
+--
+
+INSERT INTO `gastos` (`id_gastos`, `monto_ga`, `fecha_ga`, `id_categoria`, `id_usuario`) VALUES
+(1, 10000, '2024-11-14', 6, 4),
+(2, 20000, '2024-11-06', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -156,7 +180,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categoriagastos`
 --
 ALTER TABLE `categoriagastos`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `familia`
@@ -168,7 +192,7 @@ ALTER TABLE `familia`
 -- AUTO_INCREMENT de la tabla `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `id_gastos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gastos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `ingresos`
