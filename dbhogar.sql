@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2024 a las 13:50:45
+-- Tiempo de generación: 06-11-2024 a las 17:02:17
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categoriagastos` (
-  `id_categoria` int(8) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
   `nombre_categoria` varchar(50) DEFAULT NULL,
   `descripcion` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -59,7 +59,7 @@ INSERT INTO `familia` (`id_familia`, `descripcion`) VALUES
 --
 
 CREATE TABLE `gastos` (
-  `id_gastos` int(8) NOT NULL,
+  `id_gastos` int(11) NOT NULL,
   `monto_ga` int(15) DEFAULT NULL,
   `fecha_ga` date DEFAULT NULL,
   `id_categoria` int(8) DEFAULT NULL,
@@ -73,12 +73,19 @@ CREATE TABLE `gastos` (
 --
 
 CREATE TABLE `ingresos` (
-  `id_ingreso` int(8) NOT NULL,
+  `id_ingreso` int(11) NOT NULL,
   `monto_in` int(15) DEFAULT NULL,
   `fuente_in` varchar(30) DEFAULT NULL,
   `fecha_in` date DEFAULT NULL,
   `id_usuario` int(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ingresos`
+--
+
+INSERT INTO `ingresos` (`id_ingreso`, `monto_in`, `fuente_in`, `fecha_in`, `id_usuario`) VALUES
+(1, 10000, 'Venta', '2024-11-05', 4);
 
 -- --------------------------------------------------------
 
@@ -146,10 +153,28 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categoriagastos`
+--
+ALTER TABLE `categoriagastos`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `familia`
 --
 ALTER TABLE `familia`
   MODIFY `id_familia` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `gastos`
+--
+ALTER TABLE `gastos`
+  MODIFY `id_gastos` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `ingresos`
+--
+ALTER TABLE `ingresos`
+  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
