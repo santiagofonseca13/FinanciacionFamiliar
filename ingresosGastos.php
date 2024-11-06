@@ -1,5 +1,7 @@
 <?php
 session_start();
+include 'sesion/conexion.php';
+
 if (!isset($_SESSION['email'])) {
     header("Location: login.html");
     exit();
@@ -10,6 +12,15 @@ if (isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
     unset($_SESSION['message']);
 }
+
+// Obtiene la lista de las categoriasde Gasto
+$query = "SELECT id_categoria, nombre_categoria FROM categoriagastos";
+$result = mysqli_query($conn, $query);
+$categorias = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $categorias[] = $row;
+}
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -58,22 +69,25 @@ if (isset($_SESSION['message'])) {
 
                 <details>
                     <summary>Gastos</summary>
-                    <form action="sesion/agregar_ingreso.php" method="POST">
+                    <form action="sesion/agregar_gasto.php" method="POST">
                         <label for="monto-gasto">Monto del Gasto</label>
                         <input type="number" id="monto-gasto" name="monto-gasto" required>
 
                         <label for="fecha-gasto">Fecha del Gasto</label>
                         <input type="date" id="fecha-gasto" name="fecha-gasto" required>
 
-                        <label for="categoria-gasto">Fuente</label>
-                        <input type="text" id="categoria-gasto" name="categoria-gasto" placeholder="Ej. Alimentación, Transporte, etc." required>
-
+                        <label for="categoria-gasto">Categoría</label>
+                        <select id="categoria-gasto" name="categoria-gasto" required>
+                            <option value="">Seleccione una categoría</option>
+                            <?php foreach ($categorias as $categoria): ?>
+                                <option value="<?php echo $categoria['id_categoria']; ?>">
+                                    <?php echo htmlspecialchars($categoria['nombre_categoria']); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
                         <input type="submit" value="Agregar Gasto">
-                        
                     </form>
-                    
                 </details>
-                <input type="submit" value="Detalles">
             </div>
 
             <!-- Aside para la modificación del perfil -->
