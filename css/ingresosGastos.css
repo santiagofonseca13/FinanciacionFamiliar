@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif; /* Define la fuente a Arial, con una alternativa sans-serif */
+    margin: 0; /* Elimina el margen externo del cuerpo */
+    padding: 20px; /* Añade un espacio interior de 20px alrededor del contenido */
+    background-image: url('../imagenes/a.png'); /* Establece la imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen en la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 100vh; /* Establece la altura del cuerpo al 100% de la altura de la ventana */
+}
+
+.container {
+    width: 80%; /* Define el ancho del contenedor al 80% de la ventana */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    background-color: white; /* Establece un fondo blanco para el contenedor */
+    padding: 25px; /* Añade un espacio interior de 25px alrededor del contenido del contenedor */
+    border-radius: 10px; /* Redondea las esquinas del contenedor con un radio de 10px */
+    box-shadow: 0 0 10px #007bff; /* Añade una sombra azul alrededor del contenedor */
+}
+
+/* Contenedor principal en formato flex */
+.main-layout {
+    display: flex; /* Establece el contenedor como un flexbox */
+    gap: 20px; /* Añade un espacio de 20px entre los elementos hijos */
+}
+
+/* Ajuste de ancho para las columnas */
+.section {
+    flex: 3; /* Toma 3 partes del espacio disponible en el contenedor flex */
+    background-color: #f9f9f9; /* Establece un fondo gris claro para la sección */
+    padding: 20px; /* Añade un espacio interior de 20px */
+    border-radius: 10px; /* Redondea las esquinas de la sección */
+}
+
+aside {
+    flex: 1; /* Toma 1 parte del espacio disponible en el contenedor flex */
+    background: #007bff; /* Establece un fondo azul para el aside */
+    padding: 30px; /* Añade un espacio interior de 20px */
+    border-radius: 10px; /* Redondea las esquinas del aside */
+    text-align: justify; /* Justifica el texto dentro del aside */
+}
+
+h1 {
+    text-align: center; /* Centra el texto del encabezado */
+    color: #333; /* Establece un color gris oscuro para el texto */
+}
+
+details {
+    margin-top: 20px; /* Añade un margen superior de 20px a cada sección de detalles */
+}
+
+summary {
+    cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el resumen */
+    font-weight: bold; /* Hace que el texto del resumen sea más grueso */
+    font-size: 18px; /* Establece el tamaño de la fuente del resumen */
+    margin-bottom: 10px; /* Añade un margen inferior de 10px al resumen */
+}
+
+form {
+    display: flex; /* Establece el formulario como un flexbox */
+    flex-direction: column; /* Coloca los elementos del formulario en una columna */
+}
+
+input[type="number"], input[type="date"], input[type="text"] {
+    width: 100%; /* Hace que los campos de entrada ocupen todo el ancho disponible */
+    padding: 10px; /* Añade un espacio interior de 10px en los campos de entrada */
+    margin: 5px 0 10px; /* Añade márgenes superior e inferior a los campos de entrada */
+    border: 1px solid #ccc; /* Define un borde gris claro para los campos de entrada */
+    border-radius: 5px; /* Redondea las esquinas de los campos de entrada */
+}
+
+input[type="submit"] {
+    background-color: #007bff; /* Establece un fondo azul para el botón de envío */
+    color: white; /* Cambia el color del texto a blanco */
+    border: none; /* Elimina el borde del botón */
+    padding: 10px 20px; /* Añade un espacio interior de 10px vertical y 20px horizontal */
+    border-radius: 5px; /* Redondea las esquinas del botón */
+    cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el botón */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Cambia el color de fondo a un azul más oscuro al pasar el mouse sobre el botón */
+}

@@ -1,0 +1,46 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0px;/* Elimina los márgenes y padding por defecto */
+    background-image: url('../imagenes/a.png'); /*  ruta imagen */
+    background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 100vh; /* Hace que el fondo cubra el 100% de la altura de la ventana */
+    margin: 0; /* Elimina el margen por defecto */
+    display: flex; /* Utiliza Flexbox para alinear elementos */
+    justify-content: center; /* Centra el contenedor horizontalmente */
+    align-items: center; /* Centra el contenedor verticalmente */
+}
+
+.container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+ 
