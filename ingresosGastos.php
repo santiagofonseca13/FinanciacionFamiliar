@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['email'])) {
     header("Location: login.html"); // Redirigir al login si no ha iniciado sesión
     exit();
