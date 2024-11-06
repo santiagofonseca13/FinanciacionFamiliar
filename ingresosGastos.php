@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email'])) {
+    header("Location: login.html"); // Redirigir al login si no ha iniciado sesión
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +18,7 @@
 </head>
 <body>
     <div class="container">
-        
+        <h1>Bienvenido, <?php echo htmlspecialchars($_SESSION['nombre']); ?></h1>
 
         <!-- Contenedor principal en dos columnas -->
         <div class="main-layout">
