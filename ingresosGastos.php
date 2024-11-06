@@ -1,8 +1,14 @@
 <?php
 session_start();
 if (!isset($_SESSION['email'])) {
-    header("Location: login.html"); // Redirigir al login si no ha iniciado sesión
+    header("Location: login.html");
     exit();
+}
+
+$message = "";
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
 }
 ?>
 
@@ -24,6 +30,10 @@ if (!isset($_SESSION['email'])) {
             <input type="submit" value="Cerrar Sesión">
         </form>
 
+        <?php if ($message): ?>
+            <p><?php echo $message; ?></p>
+        <?php endif; ?>
+
         <!-- Contenedor principal en dos columnas -->
         <div class="main-layout">
             <!-- Sección de Ingresos y Gastos -->
@@ -32,7 +42,7 @@ if (!isset($_SESSION['email'])) {
 
                 <details>
                     <summary>Ingresos</summary>
-                    <form action="#" method="POST">
+                    <form action="sesion/agregar_ingreso.php" method="POST">
                         <label for="monto-ingreso">Monto del Ingreso</label>
                         <input type="number" id="monto-ingreso" name="monto-ingreso" required>
 
@@ -48,7 +58,7 @@ if (!isset($_SESSION['email'])) {
 
                 <details>
                     <summary>Gastos</summary>
-                    <form action="#" method="POST">
+                    <form action="sesion/agregar_ingreso.php" method="POST">
                         <label for="monto-gasto">Monto del Gasto</label>
                         <input type="number" id="monto-gasto" name="monto-gasto" required>
 
