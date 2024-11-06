@@ -19,6 +19,11 @@ if (!isset($_SESSION['email'])) {
 <body>
     <div class="container">
         <h1>Bienvenido, <?php echo htmlspecialchars($_SESSION['nombre']); ?></h1>
+        
+        <!-- Botón de cerrar sesión -->
+        <form action="sesion/logout.php" method="POST">
+            <input type="submit" value="Cerrar Sesión">
+        </form>
 
         <!-- Contenedor principal en dos columnas -->
         <div class="main-layout">
