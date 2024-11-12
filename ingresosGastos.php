@@ -88,46 +88,45 @@ $conn->close();
                         <input type="submit" value="Agregar Gasto">
                     </form>
                 </details>
+
+                <form action="sesion/detalle_ingresos_gastos.php" method="GET">
+                    <input type="submit" value="Detalles">
+                </form>
             </div>
 
             <!-- Aside para la modificación del perfil -->
             <aside>
-                <h2>Modificar Perfil</h2>
-                <form action="#" method="POST">
+                <h2>Ingresar Perfil</h2>
+                <form action="sesion/agregarIntegrante.php" method="POST">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
-                    <label for="Contraseña">Contraseña</label>
-                    <input type="text" id="Contraseña" name="Contraseña" placeholder="contraseña" required>
+                    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                    
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" required>
 
                     <div class="integrantes">
                         <h2>Agregar integrantes</h2>
                         <label>
-                            <input type="checkbox" name="integrantes" value="papa">
-                            Papá
+                            <input type="checkbox" name="rol[]" value="papa">Papá
                         </label><br>
                         <label>
-                            <input type="checkbox" name="integrantes" value="mama">
-                            Mamá
+                            <input type="checkbox" name="rol[]" value="mama">Mamá
                         </label><br>
                         <label>
-                            <input type="checkbox" name="integrantes" value="cuñada">
-                            Cuñada
+                            <input type="checkbox" name="rol[]" value="cuñada">Cuñada
                         </label><br>
                         <label>
-                            <input type="checkbox" name="integrantes" value="hijos">
-                            Hijos
+                            <input type="checkbox" name="rol[]" value="hijos">Hijos
                         </label><br>
                         <label>
-                            <input type="checkbox" name="integrantes" value="abuelos">
-                            Abuelos
+                            <input type="checkbox" name="rol[]" value="abuelo">Abuelos
                         </label><br>
                         <input type="submit" value="Agregar">
-                        
                     </div>
-    
-                    
                 </form>
-                
             </aside>
         </div>
     </div>

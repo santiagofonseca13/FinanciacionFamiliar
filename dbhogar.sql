@@ -122,7 +122,7 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(30) DEFAULT NULL,
   `rol` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `contasena` varchar(255) DEFAULT NULL,
+  `contraseña` varchar(255) DEFAULT NULL,
   `id_familia` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -130,7 +130,7 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `rol`, `email`, `contasena`, `id_familia`) VALUES
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `rol`, `email`, `contraseña`, `id_familia`) VALUES
 (3, 'Carol', 'mama', 'carolospina.la@uniminuto.edu.co', '$2y$10$IhEqVMoP4.oeMwn/jKPK4OfXB5WARpKaew.thx7cno5GM9xCqmHA.', 1),
 (4, 'Santiago', 'mama', 'santiago@gmail.com', '$2y$10$RuzjFYnQDaiehV3NZYG2Re5wojbwGmTJCt1NXDzkvhsYcLPkeblta', 2);
 

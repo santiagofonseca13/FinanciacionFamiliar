@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $id_familia = $stmt_familia->insert_id; // Obtener el ID de la familia creada
 
             // Insertar el nuevo usuario con la referencia a la nueva familia
-            $stmt_usuario = $conn->prepare("INSERT INTO usuarios (nombre, email, contasena, rol, id_familia) VALUES (?, ?, ?, 'mama', ?)");
+            $stmt_usuario = $conn->prepare("INSERT INTO usuarios (nombre, email, contraseña, rol, id_familia) VALUES (?, ?, ?, 'mama', ?)");
             $stmt_usuario->bind_param("sssi", $username, $email, $hashed_password, $id_familia);
 
             if ($stmt_usuario->execute()) {
