@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt_usuario->execute()) {
                 $_SESSION['mensaje'] = "Usuario creado con éxito. Ahora puedes iniciar sesión."; // Guardar mensaje en la sesión
-                header("Location: ../ingresosGastos.html"); // Redirige al usuario a la página de ingresos y gastos si el registro es exitoso
+                header("Location: ../ingresosGastos.php"); // Redirige al usuario a la página de ingresos y gastos si el registro es exitoso
                 exit();
             } else {
                 echo "Error al registrar el usuario: " . $stmt_usuario->error; // Mensaje de error si ocurre un problema en la inserción del usuario

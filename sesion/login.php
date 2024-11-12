@@ -2,11 +2,6 @@
 session_start();
 include 'conexion.php';
 
-// Verifica si hay un error en la conexión
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
-}
-
 // Procesar el formulario de inicio de sesión
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validar que los campos no estén vacíos
