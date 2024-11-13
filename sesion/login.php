@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['nombre'] = $nombre;
                 $_SESSION['rol'] = $rol;
                 echo "Contraseña correcta. Redirigiendo...";
-                header("refresh:2; url=../ingresosGastos.php");
+                header("refresh:1; url=../ingresosGastos.php");
                 exit(); // Asegúrate de detener la ejecución después de redirigir
             } else {
                 echo "Contraseña incorrecta.";

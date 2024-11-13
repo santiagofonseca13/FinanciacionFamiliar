@@ -61,7 +61,8 @@ form {
     flex-direction: column; /* Coloca los elementos del formulario en una columna */
 }
 
-input[type="number"], input[type="date"], input[type="text"]{
+input[type="number"], input[type="date"], input[type="text"]
+input[type="email"], input[type="password"]{
     width: 100%; /* Hace que los campos de entrada ocupen todo el ancho disponible */
     padding: 10px; /* Añade un espacio interior de 10px en los campos de entrada */
     margin: 5px 0 10px; /* Añade márgenes superior e inferior a los campos de entrada */

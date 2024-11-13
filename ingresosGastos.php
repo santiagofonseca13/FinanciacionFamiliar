@@ -13,6 +13,19 @@ if (isset($_SESSION['message'])) {
     unset($_SESSION['message']);
 }
 
+// Obtiene el rol del usuario actual
+$email = $_SESSION['email'];
+$query = "SELECT rol FROM usuarios WHERE email = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$stmt->bind_result($rol);
+$stmt->fetch();
+$stmt->close();
+
+// Define $mostrarAside si el rol incluye "mama"
+$mostrarAside = strpos($rol, 'mama') !== false;
+
 // Obtiene la lista de las categoriasde Gasto
 $query = "SELECT id_categoria, nombre_categoria FROM categoriagastos";
 $result = mysqli_query($conn, $query);
@@ -95,6 +108,7 @@ $conn->close();
             </div>
 
             <!-- Aside para la modificación del perfil -->
+            <?php if ($mostrarAside): ?>
             <aside>
                 <h2>Ingresar Perfil</h2>
                 <form action="sesion/agregarIntegrante.php" method="POST">
@@ -128,6 +142,7 @@ $conn->close();
                     </div>
                 </form>
             </aside>
+            <?php endif; ?>
         </div>
     </div>
 </body>
