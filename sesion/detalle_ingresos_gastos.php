@@ -81,22 +81,17 @@ $conn->close();
         <tr>
             <th>Monto</th>
             <th>Fecha</th>
-            <th>Fuente</th>
-            <th>Nombre del Usuario</th>
             <th>Descripción</th>
-            <th>Nombre del Usuario</th>
-            <th>Rol</th>
+            <?php if ($esMama) echo "<th>Nombre del Usuario</th><th>Rol</th>"; ?>
         </tr>
-        <?php foreach ($ingresos_data as $ingreso): ?>
+        <?php while ($ingreso = mysqli_fetch_assoc($ingresos_result)): ?>
             <tr>
                 <td><?php echo $ingreso['monto']; ?></td>
                 <td><?php echo $ingreso['fecha']; ?></td>
                 <td><?php echo $ingreso['descripcion']; ?></td>
-                <td><?php echo $ingreso['nombre_usuario']; ?></td>
-                <td><?php echo $ingreso['rol']; ?></td>
-            
+                <?php if ($esMama) echo "<td>" . htmlspecialchars($ingreso['nombre']) . "</td><td>" . htmlspecialchars($ingreso['rol']) . "</td>"; ?>
             </tr>
-        <?php endforeach; ?>
+        <?php endwhile; ?>
     </table>
 
     <h2>Gastos</h2>
@@ -105,18 +100,16 @@ $conn->close();
             <th>Monto</th>
             <th>Fecha</th>
             <th>Categoría</th>
-            <th>Nombre del Usuario</th>
-            <th>Rol</th>
+            <?php if ($esMama) echo "<th>Nombre del Usuario</th><th>Rol</th>"; ?>
         </tr>
-        <?php foreach ($gastos_data as $gasto): ?>
+        <?php while ($gasto = mysqli_fetch_assoc($gastos_result)): ?>
             <tr>
                 <td><?php echo $gasto['monto']; ?></td>
                 <td><?php echo $gasto['fecha']; ?></td>
                 <td><?php echo $gasto['categoria']; ?></td>
-                <td><?php echo $gasto['nombre_usuario']; ?></td>
-                <td><?php echo $gasto['rol'];?></td>
+                <?php if ($esMama) echo "<td>" . htmlspecialchars($gasto['nombre']) . "</td><td>" . htmlspecialchars($gasto['rol']) . "</td>"; ?>
             </tr>
-        <?php endforeach; ?>
+        <?php endwhile; ?>
     </table>
 </body>
 </html>
