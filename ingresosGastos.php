@@ -13,7 +13,20 @@ if (isset($_SESSION['message'])) {
     unset($_SESSION['message']);
 }
 
-// Obtiene la lista de las categoriasde Gasto
+// Obtiene el rol del usuario actual
+$email = $_SESSION['email'];
+$query = "SELECT rol FROM usuarios WHERE email = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$stmt->bind_result($rol);
+$stmt->fetch();
+$stmt->close();
+
+// Define $mostrarAside si el rol incluye "mama"
+$mostrarAside = (strpos($rol, 'mama') !== false) || (strpos($rol, 'papa') !== false);
+
+// Obtiene la lista de las categorías de Gasto
 $query = "SELECT id_categoria, nombre_categoria FROM categoriagastos";
 $result = mysqli_query($conn, $query);
 $categorias = [];
@@ -34,7 +47,7 @@ $conn->close();
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenido, <?php echo htmlspecialchars($_SESSION['nombre']); ?></h1>
+        <h1>Bienvenido, <?php echo ($_SESSION['nombre']); ?></h1>
         
         <!-- Botón de cerrar sesión -->
         <form action="sesion/logout.php" method="POST">
@@ -84,50 +97,57 @@ $conn->close();
                                     <?php echo htmlspecialchars($categoria['nombre_categoria']); ?>
                                 </option>
                             <?php endforeach; ?>
-                        </select>
-                        <input type="submit" value="Agregar Gasto">
+                        </select><br>
+                        <input type="submit" value="Agregar Gasto"><br>
                     </form>
                 </details>
 
                 <form action="sesion/detalle_ingresos_gastos.php" method="GET">
                     <input type="submit" value="Detalles">
                 </form>
+                <br>
+                <form action="sesion/editarPerfil.php" method="GET">
+                    <input type="submit" value="Editar perfil">
+                </form>
+
             </div>
 
             <!-- Aside para la modificación del perfil -->
+            <?php if ($mostrarAside): ?>
             <aside>
-                <h2>Ingresar Perfil</h2>
+                <h2>Agregar Perfil</h2>
                 <form action="sesion/agregarIntegrante.php" method="POST">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
-                    
+
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
-                    
+
                     <label for="contrasena">Contraseña</label>
-                    <input type="password" id="contrasena" name="contrasena" required>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
 
                     <div class="integrantes">
                         <h2>Agregar integrantes</h2>
                         <label>
-                            <input type="checkbox" name="rol[]" value="papa">Papá
+                            <input type="checkbox" name="rol[]" value="papa"> Papá
                         </label><br>
                         <label>
-                            <input type="checkbox" name="rol[]" value="mama">Mamá
+                            <input type="checkbox" name="rol[]" value="mama"> Mamá
                         </label><br>
                         <label>
-                            <input type="checkbox" name="rol[]" value="cuñada">Cuñada
+                            <input type="checkbox" name="rol[]" value="cuñada"> Cuñada
                         </label><br>
                         <label>
-                            <input type="checkbox" name="rol[]" value="hijos">Hijos
+                            <input type="checkbox" name="rol[]" value="hijos"> Hijos
                         </label><br>
                         <label>
-                            <input type="checkbox" name="rol[]" value="abuelo">Abuelos
+                            <input type="checkbox" name="rol[]" value="abuelos"> Abuelos
                         </label><br>
                         <input type="submit" value="Agregar">
                     </div>
                 </form>
             </aside>
+            <?php endif; ?>
         </div>
     </div>
 </body>

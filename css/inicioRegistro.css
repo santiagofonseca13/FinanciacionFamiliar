@@ -1,62 +1,62 @@
 body {
-    font-family: Arial, sans-serif; /* Define la fuente general de la página. */
-    margin: 0; /* Elimina los márgenes predeterminados del navegador. */
-    padding: 0; /* Elimina el relleno predeterminado del navegador. */
-    background-image: url('../imagenes/a.png'); /* Establece una imagen de fondo. */
-    background-size: cover; /* Hace que la imagen cubra toda la pantalla. */
-    background-position: center; /* Centra la imagen en la pantalla. */
-    background-repeat: no-repeat; /* Evita que la imagen se repita. */
-    height: 100vh; /* Establece la altura del body al 100% de la altura de la ventana. */
-    display: flex; /* Usa Flexbox para alinear elementos dentro del body. */
-    justify-content: center; /* Centra el contenedor horizontalmente. */
-    align-items: center; /* Centra el contenedor verticalmente. */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../imagenes/a.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
-    width: 600px; /* Establece un ancho fijo para el contenedor. */
-    padding: 50px; /* Espaciado interno dentro del contenedor. */
-    border: 1px solid #ccc; /* Añade un borde gris claro alrededor del contenedor. */
-    border-radius: 10px; /* Redondea las esquinas del contenedor. */
-    background-color: #f9f9f9; /* Establece un color de fondo claro. */
-    text-align: center; /* Centra el texto dentro del contenedor. */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Añade una sombra suave para dar profundidad. */
+    width: 600px;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 input[type="text"], input[type="password"], input[type="email"] {
-    width: 90%; /* Define el ancho de los campos de entrada al 90% del contenedor. */
-    padding: 10px; /* Espaciado interno dentro de los campos de entrada. */
-    margin: 10px 0; /* Espaciado externo entre los campos. */
-    border: 1px solid #ccc; /* Añade un borde gris claro a los campos. */
-    border-radius: 5px; /* Redondea las esquinas de los campos. */
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
-    padding: 10px 20px; /* Espaciado interno para el botón. */
-    border: none; /* Elimina el borde predeterminado del botón. */
-    border-radius: 5px; /* Redondea las esquinas del botón. */
-    background-color: #173bdb; /* Establece un color de fondo azul. */
-    color: white; /* Establece el color del texto en blanco. */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón. */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #173bdb;
+    color: white;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse. */
+    background-color: #0056b3;
 }
 
 .integrantes {
-    margin: 10px 0; /* Espacio alrededor del contenedor de miembros familiares. */
-    display: flex; /* Utiliza Flexbox para organizar elementos. */
-    flex-direction: column; /* Organiza los elementos en una columna. */
-    align-items: center; /* Centra los elementos en el eje horizontal. */
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .integrantes label {
-    display: flex; /* Permite que el texto y el checkbox estén alineados. */
-    align-items: center; /* Centra verticalmente el texto y el checkbox. */
-    margin: 5px 0; /* Espacio entre las opciones. */
-    justify-content: center; /* Centra el texto dentro del label. */
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    justify-content: center;
 }
 
 p {
-    text-align: center; /* Centra el texto dentro de los párrafos. */
+    text-align: center;
 }

@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['password'];
 
         // Verificar el usuario
-        $stmt = $conn->prepare("SELECT id_usuario, nombre, contraseña, rol FROM usuarios WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id_usuario, nombre, contrasena, rol FROM usuarios WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->store_result();
@@ -26,11 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['id_usuario'] = $id_usuario;
                 $_SESSION['nombre'] = $nombre;
                 $_SESSION['rol'] = $rol;
-                echo "Contraseña correcta. Redirigiendo...";
-                header("refresh:2; url=../ingresosGastos.php");
-                exit(); // Asegúrate de detener la ejecución después de redirigir
+                header("Location: ../ingresosGastos.php");
+                exit();
             } else {
-                echo "Contraseña incorrecta.";
+                echo "contrasena incorrecta.";
             }
         } else {
             echo "Usuario no encontrado.";

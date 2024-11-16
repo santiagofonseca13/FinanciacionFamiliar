@@ -1,6 +1,12 @@
 <?php
 session_start();
-include 'conexion.php';
+include 'conexion.php'; // Asegúrate de que la conexión esté bien
+
+// Verifica si el usuario está logueado
+if (!isset($_SESSION['email'])) {
+    header("Location: login.html");
+    exit();
+}
 
 // Obtiene el ID de la familia del administrador
 $email = $_SESSION['email'];
@@ -11,6 +17,7 @@ $variable->execute();
 $variable->bind_result($id_familia);
 $variable->fetch();
 $variable->close();
+$mostrarAside = strpos($rol, 'mama') !== false;
 
 // Revisa si los campos del formulario están completos
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = password_hash($contrasena, PASSWORD_DEFAULT);
 
         // Inserta los datos en la base de datos, incluyendo el ID de la familia
-        $sql = "INSERT INTO usuarios (nombre, email, contraseña, rol, id_familia) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO usuarios (nombre, email, contrasena, rol, id_familia) VALUES (?, ?, ?, ?, ?)";
 
         if ($variable = $conn->prepare($sql)) {
             // Asocia los parámetros y ejecuta la consulta
@@ -35,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($variable->execute()) {
                 $_SESSION['message'] = "Usuario agregado exitosamente.";
-                header("Location: ../ingresosGastos.php");  // Redirige a la página de ingresos y gastos
+                header("Location: ../ingresosGastos.php");
                 exit();
             } else {
                 echo "Error al agregar el usuario: " . $variable->error;

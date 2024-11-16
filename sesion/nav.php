@@ -1,14 +1,14 @@
 
 <?php
-$secciones = [              //Creo la variable secciones es como el arreglo 
+$secciones = [
     'vision' => 'Vision',
-    'gestion' => 'Gestion', // el signo de igual es para asociar 
-    'contacto' => 'Contacto',  //significa que la clave 'contacto' está asociada con el valor 'Contacto'.
+    'gestion' => 'Gestion',
+    'contacto' => 'Contacto',
     'proceso' => 'Proceso'
 ];
 
 foreach ($secciones as $id => $proceso) {
-    echo "<li><a href='#$id'>$proceso</a></li>"; // bucle Mediante foreach ( implode, array_map, ) se recorre  y se genera una lista HTML.
+    echo "<li><a href='#$id'>$proceso</a></li>";
 }
 foreach ($secciones as $id => $contacto) {
     echo "<li><a href='#$id'>$contacto</a></li>";
