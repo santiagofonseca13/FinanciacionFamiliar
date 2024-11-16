@@ -3,7 +3,7 @@ session_start();
 include 'sesion/conexion.php';
 
 if (!isset($_SESSION['email'])) {
-    header("Location: login.html");
+    header("Location: ../login.html");
     exit();
 }
 
