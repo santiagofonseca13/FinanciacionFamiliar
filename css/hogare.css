@@ -64,7 +64,6 @@ footer {
     z-index: 1000;
 }
 
-/* Ajustes para el contenido principal (evitar que el header y footer lo cubran) */
 section.main {
     padding-top: 30px;
     padding-bottom: 1100px;
@@ -81,7 +80,7 @@ section.main {
 aside {
     width: 20%;
     float: left;
-    background: #e6e6ec;
+    background: hsl(200, 57%, 65%);
     padding: 10px;
     box-sizing: border-box;
     text-align: justify;

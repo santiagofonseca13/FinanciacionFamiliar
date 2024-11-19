@@ -4,7 +4,7 @@ include 'conexion.php';
 
 // Revisa si el usuario está conectado
 if (!isset($_SESSION['email'])) {
-    header("Location: login.html");
+    header("Location: ../login.html");
     exit();
 }
 
