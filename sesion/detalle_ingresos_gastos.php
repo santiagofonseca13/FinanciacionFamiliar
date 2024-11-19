@@ -19,7 +19,7 @@ $variable->fetch();
 $variable->close();
 
 // Verifica si el rol incluye "mama"
-$esMama = (strpos($rol, 'mama') !== false) || (strpos($rol, 'papa') !== false);
+$esMama = (strpos($rol, 'mama') !== false);//|| (strpos($rol, 'papa') !== false);
 
 // Si no es "mama", obtenemos los ingresos y gastos solo para ese usuario
 $usuario_id = $_SESSION['id_usuario'];

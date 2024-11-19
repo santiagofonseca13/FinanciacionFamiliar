@@ -24,7 +24,7 @@ $stmt->fetch();
 $stmt->close();
 
 // Define $mostrarAside si el rol incluye "mama"
-$mostrarAside = (strpos($rol, 'mama') !== false) || (strpos($rol, 'papa') !== false);
+$mostrarAside = (strpos($rol, 'mama') !== false); //|| (strpos($rol, 'papa') !== false);
 
 // Obtiene la lista de las categorías de Gasto
 $query = "SELECT id_categoria, nombre_categoria FROM categoriagastos";
