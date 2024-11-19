@@ -12,14 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['password'];
 
         // Verificar el usuario
-        $stmt = $conn->prepare("SELECT id_usuario, nombre, contrasena, rol FROM usuarios WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->store_result();
+        $consulta = $conn->prepare("SELECT id_usuario, nombre, contrasena, rol FROM usuarios WHERE email = ?");
+        $consulta->bind_param("s", $email);
+        $consulta->execute();
+        $consulta->store_result();
 
-        if ($stmt->num_rows > 0) {
-            $stmt->bind_result($id_usuario, $nombre, $hashed_password, $rol);
-            $stmt->fetch();
+        if ($consulta->num_rows > 0) {
+            $consulta->bind_result($id_usuario, $nombre, $hashed_password, $rol);
+            $consulta->fetch();
 
             if (password_verify($password, $hashed_password)) {
                 $_SESSION['email'] = $email;
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Usuario no encontrado.";
         }
 
-        $stmt->close();
+        $consulta->close();
     }
 }
 

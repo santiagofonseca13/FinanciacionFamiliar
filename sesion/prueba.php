@@ -18,7 +18,10 @@ $variable->bind_result($id_familia, $rol);
 $variable->fetch();
 $variable->close();
 
+// Verifica si el rol incluye "mama"
 $esMama = (strpos($rol, 'mama') !== false);//|| (strpos($rol, 'papa') !== false);
+
+// Si no es "mama", obtenemos los ingresos y gastos solo para ese usuario
 $usuario_id = $_SESSION['id_usuario'];
 
 // Preparar los valores que se pasarán a bind_param
@@ -61,11 +64,22 @@ $gastos_consulta->bind_param("i", $param_gastos);  // Pasamos la variable interm
 $gastos_consulta->execute();
 $gastos_result = $gastos_consulta->get_result();
 
-// Inicializar los totales
+// Sumar todos los ingresos
 $total_ingresos = 0;
-$total_gastos = 0;
+while ($ingreso = mysqli_fetch_assoc($ingresos_result)) {
+    $total_ingresos += $ingreso['monto'];
+}
 
+// Sumar todos los gastos
+$total_gastos = 0;
+while ($gasto = mysqli_fetch_assoc($gastos_result)) {
+    $total_gastos += $gasto['monto'];
+}
+
+// Calcular la diferencia
+$diferencia = $total_ingresos - $total_gastos;
 $conn->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +108,6 @@ $conn->close();
                 <td><?php echo $ingreso['descripcion']; ?></td>
                 <?php if ($esMama) echo "<td>" . htmlspecialchars($ingreso['nombre']) . "</td><td>" . htmlspecialchars($ingreso['rol']) . "</td>"; ?>
             </tr>
-            <?php $total_ingresos += $ingreso['monto']; ?>
         <?php endwhile; ?>
     </table>
 
@@ -113,10 +126,8 @@ $conn->close();
                 <td><?php echo $gasto['categoria']; ?></td>
                 <?php if ($esMama) echo "<td>" . htmlspecialchars($gasto['nombre']) . "</td><td>" . htmlspecialchars($gasto['rol']) . "</td>"; ?>
             </tr>
-            <?php $total_gastos += $gasto['monto']; ?>
         <?php endwhile; ?>
     </table>
-
 
     <h2>Resumen Financiero</h2>
     <table>
@@ -128,7 +139,7 @@ $conn->close();
         <tr>
             <td><?php echo number_format($total_ingresos, 2); ?></td>
             <td><?php echo number_format($total_gastos, 2); ?></td>
-            <td><?php echo number_format($total_ingresos - $total_gastos); ?></td>
+            <td><?php echo number_format($diferencia, 2); ?></td>
         </tr>
     </table>
 </body>

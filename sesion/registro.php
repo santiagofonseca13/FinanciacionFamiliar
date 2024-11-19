@@ -17,31 +17,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-        $stmt_familia = $conn->prepare("INSERT INTO familia (descripcion) VALUES (?)");
+        $consulta_familia = $conn->prepare("INSERT INTO familia (descripcion) VALUES (?)");
         $descripcion_familia = $username . "'s Family";
-        $stmt_familia->bind_param("s", $descripcion_familia);
+        $consulta_familia->bind_param("s", $descripcion_familia);
 
-        if ($stmt_familia->execute()) {
-            $id_familia = $stmt_familia->insert_id; // Obtener el ID de la familia creada
+        if ($consulta_familia->execute()) {
+            $id_familia = $consulta_familia->insert_id; // Obtener el ID de la familia creada
 
             // Insertar el nuevo usuario con la referencia a la nueva familia
-            $stmt_usuario = $conn->prepare("INSERT INTO usuarios (nombre, email, contrasena, rol, id_familia) VALUES (?, ?, ?, 'mama', ?)");
-            $stmt_usuario->bind_param("sssi", $username, $email, $hashed_password, $id_familia);
+            $consulta_usuario = $conn->prepare("INSERT INTO usuarios (nombre, email, contrasena, rol, id_familia) VALUES (?, ?, ?, 'mama', ?)");
+            $consulta_usuario->bind_param("sssi", $username, $email, $hashed_password, $id_familia);
 
-            if ($stmt_usuario->execute()) {
+            if ($consulta_usuario->execute()) {
                 $_SESSION['mensaje'] = "Usuario creado con éxito. Ahora puedes iniciar sesión.";
                 header("Location: ../ingresosGastos.php");
                 exit();
             } else {
-                echo "Error al registrar el usuario: " . $stmt_usuario->error;
+                echo "Error al registrar el usuario: " . $consulta_usuario->error;
             }
 
-            $stmt_usuario->close();
+            $consulta_usuario->close();
         } else {
-            echo "Error al crear la familia: " . $stmt_familia->error;
+            echo "Error al crear la familia: " . $consulta_familia->error;
         }
 
-        $stmt_familia->close();
+        $consulta_familia->close();
     }
 }
 

@@ -20,15 +20,15 @@ if (isset($_SESSION['message'])) {
 
 // Consultar los datos actuales del usuario
 $query = "SELECT nombre, email FROM usuarios WHERE email = ?";
-$stmt = $conn->prepare($query);
-if (!$stmt) {
+$consulta = $conn->prepare($query);
+if (!$consulta) {
     die("Error al preparar la consulta: " . $conn->error);
 }
-$stmt->bind_param("s", $emailActual);
-$stmt->execute();
-$stmt->bind_result($nombreActual, $emailActualDB);
-$stmt->fetch();
-$stmt->close();
+$consulta->bind_param("s", $emailActual);
+$consulta->execute();
+$consulta->bind_result($nombreActual, $emailActualDB);
+$consulta->fetch();
+$consulta->close();
 ?>
 
 <!DOCTYPE html>

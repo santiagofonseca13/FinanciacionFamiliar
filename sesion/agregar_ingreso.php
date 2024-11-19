@@ -11,16 +11,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($monto > 0 && !empty($fecha) && !empty($descripcion)) {
 
-        $stmt = $conn->prepare("INSERT INTO ingresos (monto_in, fecha_in, fuente_in, id_usuario) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("dssi", $monto, $fecha, $descripcion, $id_usuario);
+        $consulta = $conn->prepare("INSERT INTO ingresos (monto_in, fecha_in, fuente_in, id_usuario) VALUES (?, ?, ?, ?)");
+        $consulta->bind_param("dssi", $monto, $fecha, $descripcion, $id_usuario);
 
-        if ($stmt->execute()) {
+        if ($consulta->execute()) {
             $_SESSION['message'] = "Ingreso agregado exitosamente.";
         } else {
-            $_SESSION['message'] = "Error al agregar ingreso: " . $stmt->error;
+            $_SESSION['message'] = "Error al agregar ingreso: " . $consulta->error;
         }
 
-        $stmt->close();
+        $consulta->close();
     } else {
         echo "Por favor, complete todos los campos correctamente.";
     }

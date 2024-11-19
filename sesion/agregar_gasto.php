@@ -11,16 +11,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($monto> 0 && !empty($fecha) && !empty($categoria)) {
 
-        $stmt = $conn->prepare("INSERT INTO gastos (monto_ga, fecha_ga, id_categoria, id_usuario) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("dssi", $monto, $fecha, $categoria, $id_usuario);
+        $consulta = $conn->prepare("INSERT INTO gastos (monto_ga, fecha_ga, id_categoria, id_usuario) VALUES (?, ?, ?, ?)");
+        $consulta->bind_param("dssi", $monto, $fecha, $categoria, $id_usuario);
 
-        if ($stmt->execute()) {
+        if ($consulta->execute()) {
             $_SESSION['message'] = "Gasto agregado exitosamente.";
         } else {
-            $_SESSION['message'] = "Error al agregar gasto: " . $stmt->error;
+            $_SESSION['message'] = "Error al agregar gasto: " . $consulta->error;
         }
 
-        $stmt->close();
+        $consulta->close();
     } else {
         echo "Por favor, complete todos los campos correctamente.";
     }

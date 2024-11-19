@@ -22,16 +22,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($nuevoNombre) && !empty($nuevoEmail)) {
         // Preparar la consulta para actualizar nombre y correo
         $query = "UPDATE usuarios SET nombre = ?, email = ? WHERE email = ?";
-        $stmt = $conn->prepare($query);
-        if (!$stmt) {
+        $consulta = $conn->prepare($query);
+        if (!$consulta) {
             $_SESSION['message'] = "Error al preparar la consulta: " . $conn->error;
             header("Location: editarPerfil.php");
             exit();
         }
 
-        $stmt->bind_param("sss", $nuevoNombre, $nuevoEmail, $emailActual);
+        $consulta->bind_param("sss", $nuevoNombre, $nuevoEmail, $emailActual);
         
-        if ($stmt->execute()) {
+        if ($consulta->execute()) {
             $_SESSION['message'] = "Perfil actualizado correctamente.";
 
             // Si se cambia la contraseña
@@ -48,22 +48,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // Consulta para actualizar la contraseña
                 $updateContrasenaQuery = "UPDATE usuarios SET contrasena = ? WHERE email = ?";
-                $stmtContrasena = $conn->prepare($updateContrasenaQuery);
-                if (!$stmtContrasena) {
+                $consultaContrasena = $conn->prepare($updateContrasenaQuery);
+                if (!$consultaContrasena) {
                     $_SESSION['message'] = "Error al preparar la consulta de la contraseña: " . $conn->error;
                     header("Location: editarPerfil.php");
                     exit();
                 }
 
-                $stmtContrasena->bind_param("ss", $nuevaContrasenaHash, $emailActual);
-                if ($stmtContrasena->execute()) {
+                $consultaContrasena->bind_param("ss", $nuevaContrasenaHash, $emailActual);
+                if ($consultaContrasena->execute()) {
                     $_SESSION['message'] = "Perfil actualizado correctamente.";
                 } else {
-                    $_SESSION['message'] = "Error al actualizar la contraseña: " . $stmtContrasena->error;
+                    $_SESSION['message'] = "Error al actualizar la contraseña: " . $consultaContrasena->error;
                     header("Location: editarPerfil.php");
                     exit();
                 }
-                $stmtContrasena->close();
+                $consultaContrasena->close();
             } else {
                 $_SESSION['message'] = "Perfil actualizado correctamente, sin cambios en la contraseña.";
             }
@@ -72,9 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['email'] = $nuevoEmail;
 
         } else {
-            $_SESSION['message'] = "Error al actualizar el perfil: " . $stmt->error;
+            $_SESSION['message'] = "Error al actualizar el perfil: " . $consulta->error;
         }
-        $stmt->close();
+        $consulta->close();
     } else {
         $_SESSION['message'] = "El nombre y el correo son obligatorios.";
     }
