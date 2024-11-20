@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2024 a las 18:29:02
+-- Tiempo de generación: 20-11-2024 a las 19:34:00
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -65,8 +65,7 @@ CREATE TABLE `familia` (
 --
 
 INSERT INTO `familia` (`id_familia`, `descripcion`) VALUES
-(1, 'Carol\'s Family'),
-(2, 'Santiago\'s Family');
+(9, 'Paula Gomez\'s Family');
 
 -- --------------------------------------------------------
 
@@ -87,8 +86,9 @@ CREATE TABLE `gastos` (
 --
 
 INSERT INTO `gastos` (`id_gastos`, `monto_ga`, `fecha_ga`, `id_categoria`, `id_usuario`) VALUES
-(1, 10000, '2024-11-14', 6, 4),
-(2, 20000, '2024-11-06', 1, 4);
+(6, 352000, '2024-11-18', 1, 15),
+(7, 50000, '2024-11-17', 3, 16),
+(8, 20000, '2024-11-18', 6, 16);
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,8 @@ CREATE TABLE `ingresos` (
 --
 
 INSERT INTO `ingresos` (`id_ingreso`, `monto_in`, `fuente_in`, `fecha_in`, `id_usuario`) VALUES
-(1, 10000, 'Venta', '2024-11-05', 4);
+(7, 1350000, 'Salario', '2024-11-15', 15),
+(8, 300000, 'Trabajo Sabado', '2024-11-15', 16);
 
 -- --------------------------------------------------------
 
@@ -131,8 +132,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `rol`, `email`, `contrasena`, `id_familia`) VALUES
-(3, 'Carol', 'mama', 'carolospina.la@uniminuto.edu.co', '$2y$10$IhEqVMoP4.oeMwn/jKPK4OfXB5WARpKaew.thx7cno5GM9xCqmHA.', 1),
-(4, 'Santiago', 'mama', 'santiago@gmail.com', '$2y$10$RuzjFYnQDaiehV3NZYG2Re5wojbwGmTJCt1NXDzkvhsYcLPkeblta', 2);
+(15, 'Paula Gomez', 'mama', 'paulag@gmail.com', '$2y$10$95aol2kjoVYYmNWx/T5rk.xoiCPxjToCoswnqU7077KMgoatajpA6', 9),
+(16, 'Santiago', 'hijos', 'santiago@gmail.com', '$2y$10$.Luo6Pc6cSE6F3k9QRLapuWDZ2byTrzoYmQliw2Tz7ll3Vd9pXt0q', 9);
 
 --
 -- Índices para tablas volcadas
@@ -186,25 +187,25 @@ ALTER TABLE `categoriagastos`
 -- AUTO_INCREMENT de la tabla `familia`
 --
 ALTER TABLE `familia`
-  MODIFY `id_familia` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_familia` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `id_gastos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_gastos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `ingresos`
 --
 ALTER TABLE `ingresos`
-  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restricciones para tablas volcadas
