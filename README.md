@@ -1,6 +1,6 @@
 # FinanciacionFamiliar - Programación Web
 
-Hecho por Carol Ospina, Santiago Fonseca, Paula Gomez
+Hecho por: Carol Ospina, Santiago Fonseca, Paula Gomez
 
 Presentación de Proyecto Entrega Final
 
@@ -9,10 +9,6 @@ Universidad minuto de Dios
 https://github.com/santiagofonseca13/FinanciacionFamiliar
 
 <img src="imagenes/un.png" alt="logo" style="width:200px; height:auto;">
-
-Hecho por: 
-
-Santiago Fonseca - Carol Ospina - Paula Gomez
 
 Introducción
 
