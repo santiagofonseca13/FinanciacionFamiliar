@@ -59,7 +59,7 @@ form {
     flex-direction: column;
 }
 
-input[type="number"], input[type="date"], input[type="text"], input[type="password"], input[type="email"] {
+input[type="number"], input[type="date"], input[type="text"], input[type="password"], input[type="email"], select{
     width: 97%;
     padding: 10px;
     margin: 5px 0 10px;

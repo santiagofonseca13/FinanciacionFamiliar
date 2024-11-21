@@ -8,27 +8,34 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-// Obtener el correo actual del usuario desde la sesión
 $emailActual = $_SESSION['email'];
+$rol = $_SESSION['rol'];
+$esMama = (strpos($rol, 'mama') !== false);
+$usuarioSeleccionado = ''; 
 
-// Mensaje de error o éxito
+// Obtiene el id_familia del usuario actual
+$queryFamilia = "SELECT id_familia FROM usuarios WHERE email = ?";
+$consultaFamilia = $conn->prepare($queryFamilia);
+$consultaFamilia->bind_param("s", $emailActual);
+$consultaFamilia->execute();
+$consultaFamilia->bind_result($idFamilia);
+$consultaFamilia->fetch();
+$consultaFamilia->close();
+
+// Obtiene la lista de usuarios de la misma familia
+$query = "SELECT id_usuario, nombre, email FROM usuarios WHERE id_familia = ?";
+$consultaUsuarios = $conn->prepare($query);
+$consultaUsuarios->bind_param("i", $idFamilia);
+$consultaUsuarios->execute();
+$result = $consultaUsuarios->get_result();
+$usuarios = $result->fetch_all(MYSQLI_ASSOC);
+$consultaUsuarios->close();
+
 $message = "";
 if (isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
     unset($_SESSION['message']);
 }
-
-// Consultar los datos actuales del usuario
-$query = "SELECT nombre, email FROM usuarios WHERE email = ?";
-$consulta = $conn->prepare($query);
-if (!$consulta) {
-    die("Error al preparar la consulta: " . $conn->error);
-}
-$consulta->bind_param("s", $emailActual);
-$consulta->execute();
-$consulta->bind_result($nombreActual, $emailActualDB);
-$consulta->fetch();
-$consulta->close();
 ?>
 
 <!DOCTYPE html>
@@ -43,20 +50,31 @@ $consulta->close();
     <div class="section">
         <h1>Editar Perfil</h1>
 
-        <!-- Mostrar mensaje de error o éxito -->
         <?php if ($message): ?>
             <p><?php echo $message; ?></p>
         <?php endif; ?>
 
         <form action="actualizarPerfil.php" method="POST">
+            <?php if ($esMama): ?>
+                <label for="usuario">Usuario:</label>
+                <select id="usuario" name="usuario" required>
+                    <option value="">Seleccione un usuario</option>
+                    <?php foreach ($usuarios as $usuario): ?>
+                        <option value="<?php echo $usuario['id_usuario']; ?>" 
+                            <?php echo ($usuario['id_usuario'] == $usuarioSeleccionado) ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($usuario['nombre']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select><br>
+            <?php endif; ?>
             <label for="nuevo-nombre">Nuevo Nombre:</label>
-            <input type="text" id="nuevo-nombre" name="nuevo-nombre" value="<?php echo htmlspecialchars($nombreActual); ?>" required>
+            <input type="text" id="nuevo-nombre" name="nuevo-nombre" placeholder="Nombre" value="Nombre" required>
 
             <label for="nuevo-email">Nuevo Correo Electrónico:</label>
-            <input type="email" id="nuevo-email" name="nuevo-email" value="<?php echo htmlspecialchars($emailActualDB); ?>" required>
+            <input type="email" id="nuevo-email" name="nuevo-email" placeholder="Correo" value="Correo"required>
 
             <label for="nueva-contrasena">Nueva Contraseña (opcional):</label>
-            <input type="password" id="nueva-contrasena" name="nueva-contrasena" placeholder="Nueva contraseña">
+            <input type="password" id="nueva-contrasena" name="nueva-contrasena" placeholder="Nueva contraseña" value="">
 
             <input type="submit" value="Guardar Cambios">
         </form>

@@ -40,6 +40,10 @@ body {
     border-radius: 5px;
     font-weight: bold;
 }
+form {
+    display: flex;
+    flex-direction: column;
+}
 
 /* Etiquetas */
 label {
@@ -52,17 +56,16 @@ label {
 }
 
 /* Inputs */
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], select{
     width: 95%;
     padding: 12px;
     margin: 8px 0 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
-    
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus{
     border-color: #0056b3;
     outline: none;
     box-shadow: 0 0 5px rgba(65, 125, 190, 0.5);
@@ -91,4 +94,14 @@ input[type="submit"]:active {
     transform: translateY(1px);
 }
 
-
+/* Estilos para el elemento select */
+select {
+    width: 95%;
+    padding: 12px;
+    margin: 8px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    appearance: none; /* Elimina el estilo predeterminado del select en algunos navegadores */
+    background-color: white; /* Fondo blanco */
+}

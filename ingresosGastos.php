@@ -132,9 +132,6 @@ $conn->close();
                             <input type="checkbox" name="rol[]" value="papa"> Papá
                         </label><br>
                         <label>
-                            <input type="checkbox" name="rol[]" value="mama"> Mamá
-                        </label><br>
-                        <label>
                             <input type="checkbox" name="rol[]" value="cuñada"> Cuñada
                         </label><br>
                         <label>
@@ -142,7 +139,7 @@ $conn->close();
                         </label><br>
                         <label>
                             <input type="checkbox" name="rol[]" value="abuelos"> Abuelos
-                        </label><br>
+                        </label><br><br>
                         <input type="submit" value="Agregar">
                     </div>
                 </form>
