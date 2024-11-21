@@ -18,16 +18,20 @@ Recursos Adicionales
 Nombre de la Base de Datos "dbhogar.sql"
 
 Usuarios de pruebas
-
+*************************************************************************
 id_Familia: 9
 *************************************************************************
 Rol: Cuñada  ||  Correo: valentina@gmail.com  ||   Contraseña: q1w2e3r4
+*************************************************************************
 Rol: Mama    ||  Correo: paulag@gmail.com     ||   Contraseña: 12345
+*************************************************************************
 Rol: hijo    ||  Correo: santiago@gmail.com   ||   Contraseña: qwert12345
-
+*************************************************************************
 id_Familia: 10
 *************************************************************************
 Rol: Mama    ||  Correo: camila@gmail.com     ||   Contraseña: qwert12345
+*************************************************************************
 Rol: Abuelos ||  Correo: david@gmail.com      ||   Contraseña: 12345678
+*************************************************************************
 
 ¡Gracias por tu atención!
