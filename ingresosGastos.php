@@ -1,3 +1,4 @@
+<!-- Integrantes PAULA VALENTINA, SANTIAGO FONSECA, CAROL OSPINA-->
 <?php
 session_start();
 include 'sesion/conexion.php';
