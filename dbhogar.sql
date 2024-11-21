@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2024 a las 19:34:00
+-- Tiempo de generación: 21-11-2024 a las 03:31:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -65,7 +65,8 @@ CREATE TABLE `familia` (
 --
 
 INSERT INTO `familia` (`id_familia`, `descripcion`) VALUES
-(9, 'Paula Gomez\'s Family');
+(9, 'Paula Gomez\'s Family'),
+(10, 'camilo\'s Family');
 
 -- --------------------------------------------------------
 
@@ -88,7 +89,10 @@ CREATE TABLE `gastos` (
 INSERT INTO `gastos` (`id_gastos`, `monto_ga`, `fecha_ga`, `id_categoria`, `id_usuario`) VALUES
 (6, 352000, '2024-11-18', 1, 15),
 (7, 50000, '2024-11-17', 3, 16),
-(8, 20000, '2024-11-18', 6, 16);
+(8, 20000, '2024-11-18', 6, 16),
+(9, 354000, '2024-11-19', 1, 17),
+(11, 20000, '2024-11-15', 3, 20),
+(12, 54000, '2024-11-20', 4, 21);
 
 -- --------------------------------------------------------
 
@@ -110,7 +114,10 @@ CREATE TABLE `ingresos` (
 
 INSERT INTO `ingresos` (`id_ingreso`, `monto_in`, `fuente_in`, `fecha_in`, `id_usuario`) VALUES
 (7, 1350000, 'Salario', '2024-11-15', 15),
-(8, 300000, 'Trabajo Sabado', '2024-11-15', 16);
+(8, 300000, 'Trabajo Sabado', '2024-11-15', 16),
+(9, 1000000, 'Salario', '2024-11-13', 17),
+(11, 45000, 'venta', '2024-11-18', 20),
+(12, 432850, 'Venta', '2024-11-08', 21);
 
 -- --------------------------------------------------------
 
@@ -132,8 +139,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `rol`, `email`, `contrasena`, `id_familia`) VALUES
-(15, 'Paula Gomez', 'mama', 'paulag@gmail.com', '$2y$10$95aol2kjoVYYmNWx/T5rk.xoiCPxjToCoswnqU7077KMgoatajpA6', 9),
-(16, 'Santiago', 'hijos', 'santiago@gmail.com', '$2y$10$.Luo6Pc6cSE6F3k9QRLapuWDZ2byTrzoYmQliw2Tz7ll3Vd9pXt0q', 9);
+(15, 'Paula Gomez', 'mama', 'paulag@gmail.com', '$2y$10$UXhmOvh5zcsCgSAGl4jUduTF46YWAxvfZiLiqifwGubrWtXp7hgKy', 9),
+(16, 'Santiago Fonseca', 'hijos', 'santiago@gmail.com', '$2y$10$1UnIdfLTTFifCzl4zWeb2eFmBbMNS3mG7OenLLewPOzcvpDQX2s6K', 9),
+(17, 'Camila', 'mama', 'camila@gmail.com', '$2y$10$rduuIjKQyIxjuYnryEoT9OS4QDsKvEvCO9h3SuLjF05HlHHHnqmqm', 10),
+(20, 'valentina', 'cuñada', 'valentina@gmail.com', '$2y$10$iefVhvzULCEapRdABG/mbOupEP/fVIRlW4WIZ8OJ95QsvfZx61s66', 9),
+(21, 'David', 'abuelos', 'david@gmail.com', '$2y$10$ReSgg4z39GXnxdz3bYtsAunCsDFSXI7QWML7ZdPGXaGhA4rfdu/uq', 10);
 
 --
 -- Índices para tablas volcadas
@@ -187,25 +197,25 @@ ALTER TABLE `categoriagastos`
 -- AUTO_INCREMENT de la tabla `familia`
 --
 ALTER TABLE `familia`
-  MODIFY `id_familia` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_familia` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `id_gastos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_gastos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `ingresos`
 --
 ALTER TABLE `ingresos`
-  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_usuario` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas
